@@ -20,3 +20,13 @@ This data set does have its limitations. It was collected from 2016-03-12 to 201
   *  hourlySteps_merged,
   *   hourlyCalories_Merged.
 
+# Process:
+I choose to work in BigQuery.
+
+**uploaded the datasets to BigQuery under the project “mturkfitbit_export”.**
+
+I uploaded four datasets into BigQuery and renamed the dataset as:
+* dailyActivity_merged as Dailyactivity_3_12,
+* hourlyCalories_merged as hourly_calories_merged,
+ * hourlyIntensities_merged as hourly_intensities, 
+* hourlySteps_merged as hourly_steps_merged
