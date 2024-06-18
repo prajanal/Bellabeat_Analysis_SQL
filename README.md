@@ -102,7 +102,7 @@ I uploaded four datasets into BigQuery and renamed the dataset as:
       ORDER BY
       date, Id;
 
-# using inner join and adding a new column day_of_week.
+# Using inner join and adding a new column day_of_week.
 
 **Joining all four files together to get a new table with sum_calories daily_steps and sum of Intensities.**
 
@@ -140,6 +140,59 @@ INNER JOIN
 on
   t1.id =t4.id and t1.ActivityDate=t4.date
 
+# How often individual user are using the tracker
+
+*INSIGHTS: I wanted to see how many times each user uses the tracker
+
+ SELECT Id, COUNT (Id) AS Total_Id FROM `mturkfitbit_export.combined table1`
+  GROUP BY Id ORDER BY Total_Id DESC;
+
+# This query categorizes users based on their usage frequency, counts the number of users in each category, and provides a summarized view of the data for further analysis
+* Create table `mturkfitbit_export.use distribution`as
+  
+  SELECT
+  
+  CASE
+  
+  WHEN Total_Id < 5 THEN 'uses less than 5'
+  
+  WHEN Total_Id >= 5 AND Total_Id < 10 THEN 'uses between 5 and 10'
+  
+  WHEN Total_Id >= 10 AND Total_Id < 15 THEN 'uses between 10 and 15'
+  
+  WHEN Total_Id >= 15 AND Total_Id < 20 THEN 'uses between 15 and 20'
+  
+  WHEN Total_Id >= 20 AND Total_Id < 25 THEN 'uses between 20 and 25'
+  
+  ELSE 'uses greater than or equal to 25'
+  
+  END AS interval1,
+  
+  COUNT(Total_Id) AS uses_count
+  
+  FROM (
+  
+  SELECT
+  
+  Id,
+  
+  COUNT(Id) AS Total_Id
+  
+  FROM
+  
+  `mturkfitbit_export.combined table1`
+  
+  GROUP BY
+  
+  Id)
+  
+  GROUP BY
+  
+  interval1
+  
+  ORDER BY
+  
+  interval1;
 
 
 
