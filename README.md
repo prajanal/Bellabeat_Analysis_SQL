@@ -13,8 +13,29 @@ In this case study, I analyzed data from Bellabeat, a smart device company based
 * How could these trends apply to Bellabeat customers?
 
   # Prepare:
-This data set does have its limitations. It was collected from 2016-03-12 to 2016-05-12 and had a participant base of 30. 
+**Data Source**
+
+https://www.kaggle.com/datasets/arashnic/fitbit
+
+*This Kaggle data set contains personal fitness tracker from thirty fitbit users. 
+Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring.
+It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits*
+  
+
+**Dataset Limitations**
+
+* Time Frame: The data was collected from March 12, 2016, to May 12, 2016.
+  
+* Sample Size: Only 30 participants, which is too small for a comprehensive analysis.
+  
+* Outdated Data: The data is quite old and lacks current relevance.
+  
+* Lack of External Comparison: No external data is available for market comparison.
+  
+  *This study aims to demonstrate my analytical abilities and It offers general insights rather than detailed conclusions, considering the dataset's limitations.*
+  
 * I  looked at Four of the tables from this dataset
+
   * dailyActivity_merged,
   *  hourlyIntensities_merged,
   *  hourlySteps_merged,
