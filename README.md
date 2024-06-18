@@ -195,8 +195,102 @@ on
   interval1;
 
 
+# line chart time series data  everyday min max step count
 
 
+
+# Average, Min , Max steps of individual person
+
+* select
+  
+  ActivityDate,
+  
+  min(TotalSteps) as min_step,
+  
+  max(TotalSteps) as max_step,
+  
+  avg(TotalSteps) as avg_steps
+  
+  from `mturkfitbit_export.Dailyactivity_3_12`
+  
+  group by
+  
+  ActivityDate;
+
+# Extracting day-of week from date 1 column
+
+* SELECT
+  
+  FORMAT_DATE('%A', date1) AS day_of_week,
+  
+  COUNT(*) AS total_count
+  
+  FROM
+  
+  `mturkfitbit_export.combined table1`
+  
+  GROUP BY
+  
+  day_of_week
+  
+  ORDER BY
+  
+  day_of_week;
+
+  *Insights: i wanted to see what is daily average intensities*
+  
+# Bar chart for total intensity used by day of week.
+
+* select
+  
+  FORMAT_DATE('%A', date1) AS day_of_week,
+  
+  avg(sum_Inten) as Total_intensity
+  
+  FROM
+  
+  `mturkfitbit_export.combined table1`
+  
+  GROUP BY
+  
+  day_of_week
+  
+  order by
+  
+  Total_intensity desc; 
+
+# created new table adding days as days of week in dailyactivity.
+
+* Create table `mturkfitbit_export.Dailyactivity_3_12_days`as
+
+  SELECT *, FORMAT_DATE('%A', ActivityDate) AS day_of_week,
+  
+  FROM
+  
+  `mturkfitbit_export.Dailyactivity_3_12`
+
+  
+  *Insights: I wanted to determine if people were more active on a certain day of the week.*
+  
+  # Bar chart average activity level by day of week.
+  
+* SELECT  day_of_week,
+  
+  ROUND (avg(VeryActiveMinutes), 2) AS Avg_Very_Active_Minutes,
+  
+  ROUND (avg(FairlyActiveMinutes), 2) AS Avg_Fairly_Active_Minutes,
+  
+  ROUND (avg(LightlyActiveMinutes), 2) AS Avg_Lightly_Active_Minutes,
+  
+  ROUND (avg(SedentaryMinutes), 2) AS Avg_Sedentary_Minutes,
+  
+FROM  
+
+  `mturkfitbit_export.Dailyactivity_3_12_days`
+  
+GROUP BY
+
+  day_of_week;
 
 
 
