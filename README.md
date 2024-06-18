@@ -148,6 +148,7 @@ on
   GROUP BY Id ORDER BY Total_Id DESC;
 
 # This query categorizes users based on their usage frequency, counts the number of users in each category, and provides a summarized view of the data for further analysis
+
 * Create table `mturkfitbit_export.use distribution`as
   
   SELECT
@@ -237,7 +238,7 @@ on
   
   day_of_week;
 
-  *Insights: i wanted to see what is daily average intensities*
+  *Insights: I wanted to see what is daily average intensities*
   
 # Bar chart for total intensity used by day of week.
 
@@ -331,7 +332,7 @@ on
 – add  tableau link here 
 
 # Act
-**Through my analysis i was able to uncover the following:**
+**Through my analysis I was able to uncover the following:**
 
 * Sedentary Behavior Dominance:
   
