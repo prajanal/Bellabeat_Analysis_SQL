@@ -275,22 +275,98 @@ on
   # Bar chart average activity level by day of week.
   
 * SELECT  day_of_week,
-  
+
   ROUND (avg(VeryActiveMinutes), 2) AS Avg_Very_Active_Minutes,
   
   ROUND (avg(FairlyActiveMinutes), 2) AS Avg_Fairly_Active_Minutes,
-  
+
   ROUND (avg(LightlyActiveMinutes), 2) AS Avg_Lightly_Active_Minutes,
-  
+
   ROUND (avg(SedentaryMinutes), 2) AS Avg_Sedentary_Minutes,
-  
-FROM  
+
+  FROM
 
   `mturkfitbit_export.Dailyactivity_3_12_days`
-  
-GROUP BY
+
+  GROUP BY
 
   day_of_week;
+
+
+
+
+# Relationship between Steps and cCalories burned
+
+# Time series plot.
+* SELECT
+  
+  date1,
+
+  AVG(daily_Steps) AS Avg_Total_Steps,
+  
+   FROM
+
+  `mturkfitbit_export.combined table1`
+ 
+   group by
+
+  date1;
+# Relationship between Total distance and Calories burned
+# Time series plot.
+* SELECT
+ 
+ date1,
+ 
+ AVG(TotalDistance) AS Avg_Total_Distance,
+ 
+ FROM
+ 
+ `mturkfitbit_export.combined table1`
+ 
+ group by
+ 
+ date1;
+
+# Share:
+– add  tableau link here 
+
+# Act
+**Through my analysis i was able to uncover the following:**
+
+* Sedentary Behavior Dominance:
+  
+The data reveals that users predominantly spend most of their time in the sedentary category, indicating a potential lack of physical activity among the user population.
+
+* Daily Usage Frequency:
+  
+Only two out of 34 users are consistently using the device every day, suggesting that daily usage is not common among the majority of users.
+
+* Monthly Usage Duration:
+  
+A significant portion, 85% of users, utilize the device for less than 15 days in a month. This indicates that a large proportion of users may not be consistently engaging with the device or maintaining a regular exercise routine.
+
+* Steps and Calorie Burn:
+  
+There is a positive correlation between the number of steps taken and the calories burned. This emphasizes the importance of physical activity in calorie expenditure and overall health.
+
+* Weekday vs. Weekend Activity Patterns:
+  
+Weekdays, from Monday to Friday, exhibit lower levels of very active, fairly active, and lightly active minutes compared to weekends (Saturday and Sunday). This shift suggests that users may have more leisure time and engage in higher levels of physical activity during weekends.
+
+
+# Recommendations:
+
+* Promoting Physical Activity:
+
+Encouraging users to reduce sedentary behavior and increase physical activity levels can have significant health benefits. Implementing reminders or challenges to increase movement throughout the day may be beneficial.
+
+* Enhancing User Engagement:
+  
+  Strategies to increase daily usage frequency and promote consistent use of the device should be explored. Providing incentives or rewards for regular use may help in sustaining user engagement.
+
+* Targeted Interventions:
+
+ Understanding user demographics and preferences can inform targeted interventions aimed at improving device usage patterns. Tailored approaches to address specific user needs and preferences may lead to better outcomes.
 
 
 
