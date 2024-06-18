@@ -33,7 +33,10 @@ I uploaded four datasets into BigQuery and renamed the dataset as:
 
 # Analyze and Share
 **Identifying distinct id in different dataset**
-* SELECT count (DISTINCT Id)
+
+*Insight: It is aimed at providing a clear count of unique users in the specified dataset, which is essential for understanding user engagement, ensuring data quality.*
+
+* SELECT count (DISTINCT I
  FROM `mturkfitbit_export.Dailyactivity_3_12`;
 
 
@@ -50,6 +53,9 @@ I uploaded four datasets into BigQuery and renamed the dataset as:
   
 # Transforming hourly data to daily data and creating a new table.
 **From Hourly_step_merged to Daily_steps_merged.**
+
+*Insight: It is designed to aggregate hourly step data into daily summaries, creating a new table that facilitates easier and more meaningful analysis of user activity patterns.*
+
 * Create table `mturkfitbit_export.Daily_steps_merged` as
   SELECT
   Id,
@@ -95,6 +101,50 @@ I uploaded four datasets into BigQuery and renamed the dataset as:
       Id, DATE(ActivityHour)
       ORDER BY
       date, Id;
+
+# using inner join and adding a new column day_of_week.
+
+**Joining all four files together to get a new table with sum_calories daily_steps and sum of Intensities.**
+
+  Create table `mturkfitbit_export.combined table1` as
+SELECT
+t1.Id,TotalDistance,TrackerDistance,
+
+t1.ActivityDate as date1,
+
+FORMAT_DATE('%A', t1.ActivityDate) AS day_of_week,
+
+t2.daily_sum_daily_calories as sum_calories,
+
+t3.daily_sum_StepTotal as daily_steps,
+
+t4.daily_sum_daily_TotalIntensity as sum_inten
+
+FROM
+   `mturkfitbit_export.Dailyactivity_3_12` AS t1
+   
+INNER JOIN
+   `mturkfitbit_export.daily_calories_merged` AS t2
+   
+ON
+  t1.id = t2.id and t1.ActivityDate=t2.date
+  
+INNER JOIN
+  `mturkfitbit_export.Daily_steps_merged` AS t3
+  
+ON
+  t1.id = t3.id and t1.ActivityDate=t3.date
+INNER JOIN
+`mturkfitbit_export.daily_intensities` AS t4
+
+on
+  t1.id =t4.id and t1.ActivityDate=t4.date
+
+
+
+
+
+
 
 
 
