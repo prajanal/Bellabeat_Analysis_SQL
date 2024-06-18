@@ -217,10 +217,6 @@ on
   interval1;
 
 
-# line chart time series data  everyday min max step count
-
-
-
 # Average, Min , Max steps of individual person
 
 * select
@@ -259,9 +255,7 @@ on
   
   day_of_week;
 
-  *Insights: I wanted to see what is daily average intensities*
-  
-# Bar chart for total intensity used by day of week.
+  # Insights: I wanted to see what is daily average intensities*
 
 * select
   
@@ -292,9 +286,8 @@ on
   `mturkfitbit_export.Dailyactivity_3_12`
 
   
-  *Insights: I wanted to determine if people were more active on a certain day of the week.*
+  # Insights: I wanted to determine if people were more active on a certain day of the week.*
   
-  # Bar chart average activity level by day of week.
   
 * SELECT  day_of_week,
 
@@ -319,7 +312,6 @@ on
 
 # Relationship between Steps and cCalories burned
 
-# Time series plot.
 * SELECT
   
   date1,
@@ -334,7 +326,7 @@ on
 
   date1;
 # Relationship between Total distance and Calories burned
-# Time series plot.
+
 * SELECT
  
  date1,
@@ -350,7 +342,7 @@ on
  date1;
 
 # Share:
-– add  tableau link here 
+https://public.tableau.com/authoring/Bellabeat_Visualization_17187237941670/Dashboard1#3
 
 # Act
 **Through my analysis I was able to uncover the following:**
