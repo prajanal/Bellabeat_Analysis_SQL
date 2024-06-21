@@ -1,4 +1,4 @@
-# Case Study: Bellabeat Analysis
+# Case Study: Smart Device Analysis
 # Author: Prajana Luitel
 # Date: 6-17-2024
 # Emmail: Prajana.luitel@gmail.com
